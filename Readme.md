@@ -56,9 +56,9 @@ Each Layer is described by its properties (in German).
   "Diffusionswiderstand": 53.0
 }
 ```
-| Name              | Dicke                  | Waermeleitfaehigkeit   | Diffusionswiderstand     |
-| :-------------    | :-------------         | :-------------------   | :-------------------     |
-| Name of the layer | Thickness of the layer | Thermal Conductivity λ | Water Vaper Resistance μ |
+| Name              | Dicke                           | Waermeleitfaehigkeit              | Diffusionswiderstand     |
+| :-------------    | :-------------                  | :-------------------              | :-------------------     |
+| Name of the layer | Thickness of the layer in m     | Thermal Conductivity λ in (W/K*m) | Water Vaper Resistance μ |
 
 It will then output a *.txt* file inside the Output folder with tables containing the thermal profile, the pressure profile and the condensation mass and the evaporating mass.  
 

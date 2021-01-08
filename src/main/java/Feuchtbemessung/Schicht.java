@@ -3,11 +3,11 @@ package Feuchtbemessung;
 import Util.Druck;
 
 public class Schicht {
-    //lambda
+    //λ
     private final double Waermeleitfaehigkeit;
     //Dicke d
     private final double Dicke;
-    //Wasserdampfdiffusionswiderstand mü
+    //Wasserdampfdiffusionswiderstand μ
     private final double Diffusionswiderstand;
     private final String name;
 
