@@ -7,9 +7,12 @@ public class Writer {
     public static boolean WritetoFile(String o, String name, String dir){
         File f = new File( dir );
         if(f.exists()) {
-            String Filename = dir + name + ".txt";
+            String Filename = dir + name;
             f = new File( Filename );
             try {
+                if(f.exists()){
+                    f.delete();
+                }
                 if (f.createNewFile()) {
                     try (java.io.Writer out = new BufferedWriter( new OutputStreamWriter(
                             new FileOutputStream( Filename ), StandardCharsets.UTF_8 ) )) {

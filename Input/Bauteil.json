@@ -1,4 +1,11 @@
 {
+  "r_si": 0.13 ,
+  "r_se": 0.04 ,
+  "relative_luftfeuchte_i": 0.5 ,
+  "relative_luftfeuchte_e": 0.8 ,
+  "temperatur_i": 25.0 ,
+  "temperatur_e": -5.0 ,
+  "IstDach": false,
   "Schichten": [
     {
       "Name": "Betonrohdecke",
