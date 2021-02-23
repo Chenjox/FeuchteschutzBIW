@@ -15,6 +15,7 @@ public class Haupt {
                 Bauteil b = potentialBauteil.build();
                 IO.Writer.WritetoFile( b.getDampfdruckprofil(), pot.getName().replace( ".json", ".adoc" ), "Output/" );
             }catch (Exception e){
+                e.printStackTrace();
                 IO.Writer.WritetoFile( "Fehler beim Einlesen der Datei: "+e.toString(), pot.getName().replace( ".json", ".txt" ), "Output/" );
             }
         }

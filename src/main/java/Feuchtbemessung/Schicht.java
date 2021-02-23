@@ -45,8 +45,9 @@ public class Schicht {
     public double getDiffusionsleitwiderstand(){
         return (Diffusionswiderstand*Dicke)/Druck.DIFFUSIONSLEITKOEFFIZIENT_IN_LUFT;
     }
-    public double getDiffusionsleitwiderstand(int nachkommastellen){
-        return Util.functions.RoundToDecimalPlace( (Diffusionswiderstand*Dicke), nachkommastellen )/Druck.DIFFUSIONSLEITKOEFFIZIENT_IN_LUFT;
+
+    public double getSd(){
+        return (Diffusionswiderstand*Dicke);
     }
     /**
      *

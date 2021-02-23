@@ -313,12 +313,12 @@ public class Bauteil {
     public String getRealDampfdruckprofilasString(double phi_interior, double phi_exterior, double R_interior_surface, double R_exterior_surface, double rel_luft_interior, double rel_luft_exterior, boolean istdach){
         AdvancedTable<Double> bauteilschichten = AdvancedTable.getTable( spec-> spec
         .setColumns( 8 )
-        .setStandardMapper( d -> !d.isNaN() ? String.valueOf(Math.round( d*1000.0 )/1000.0) : "" )
+        .setStandardMapper( d -> !d.isNaN() ? String.valueOf(Math.round( d*100000.0 )/100000.0) : "" )
         .addFunctionalRow( row -> row.setStandardOperator( Double::sum ).setEndRow( AdvFuncRow.ENDROW_FOR_ALL_ROWS ).setStartRow( 0 ) )
         );
 
         AdvancedTable<Double> ebenen = AdvancedTable.getTable( spec -> spec
-            .setColumns( 8 ).setStandardMapper( d -> !d.isNaN() ? String.valueOf( Math.round( d*1000.0 )/1000.0 ) : "" )
+            .setColumns( 8 ).setStandardMapper( d -> !d.isNaN() ? String.valueOf( Math.round( d*100000.0 )/100000.0 ) : "" )
         );
 
         //Transmissionswaermestromdichte
@@ -349,7 +349,7 @@ public class Bauteil {
             pv_momentan = schicht.Partialdampfdruckabfall( pv_momentan, Dampfdruckdichte );
             phi_momentan = schicht.Temperaturabfall( phi_momentan, Transmissionswaermestromdichte );
 
-            bauteilschichten.addRow( schicht.getDicke(), schicht.getWaermeleitfaehigkeit(), schicht.getWaermedurchgangswiderstand(), schicht.getDiffusionswiderstand(), schicht.getDiffusionsleitwiderstand(), Double.NaN, Double.NaN, Double.NaN );
+            bauteilschichten.addRow( schicht.getDicke(), schicht.getWaermeleitfaehigkeit(), schicht.getWaermedurchgangswiderstand(), schicht.getDiffusionswiderstand(), schicht.getSd(), Double.NaN, Double.NaN, Double.NaN );
 
             if (pv_momentan > Druck.sattigungsdampfdruck( phi_momentan )) {
                 ebenen.addRow( Double.NaN, Double.NaN, Double.NaN, Double.NaN, Double.NaN, phi_momentan, Druck.sattigungsdampfdruck( phi_momentan ), pv_momentan );
@@ -416,7 +416,7 @@ public class Bauteil {
                                        "\u03BB in [W/(m*K)]",
                                        "R in [m^2*K/W]" ,
                                        "mu in [-]" ,
-                                       "Z in [s]" ,
+                                       "s~d~ in [m]" ,
                                        "\u0398 in [\u00B0C]" ,
                                        "Sat. Druck in [Pa]" ,
                                        "Part. Druck in [Pa]" ));
